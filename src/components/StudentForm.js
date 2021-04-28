@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
+const initialState = {
+    firstName: '',
+    lastName: '',
+    phoneNumber: '',
+    address: '',
+    email: ''
+}
 
 function StudentForm() {
-    const [studentInfo, setStudentInfo] = useState({
-        firstName: '',
-        lastName: '',
-        phoneNumber: '',
-        address: '',
-        email: '',
-    })
+    const [studentInfo, setStudentInfo] = useState(initialState)
+
+    const updateStudent = (value, property) => {
+        return setStudentInfo({...studentInfo, [property]: value})
+    }
+
   return (
     <div>
       <label>
@@ -16,7 +22,7 @@ function StudentForm() {
           type="text"
           name="firstName"
           value={studentInfo.firstName}
-          onChange={(e) => setStudentInfo({...studentInfo, firstName: e.target.value})}
+          onChange={e => updateStudent(e.target.value, "firstName")}
         />
       </label>
       <br />
@@ -26,7 +32,7 @@ function StudentForm() {
           type="text"
           name="lastName"
           value={studentInfo.lastName}
-          onChange={(e) => setStudentInfo({...studentInfo, lastName: e.target.value})}
+          onChange={(e) => updateStudent(e.target.value, "lastName")}
         />
       </label>
       <br />
@@ -36,7 +42,7 @@ function StudentForm() {
           type="text"
           name="phoneNumber"
           value={studentInfo.phoneNumber}
-          onChange={(e) => setStudentInfo({...studentInfo, phoneNumber: e.target.value})}
+          onChange={(e) => updateStudent(e.target.value, "phoneNumber")}
         />
       </label>
       <br />
@@ -46,7 +52,7 @@ function StudentForm() {
           type="text"
           name="address"
           value={studentInfo.address}
-          onChange={(e) => setStudentInfo({...studentInfo, address: e.target.value})}
+          onChange={(e) => updateStudent(e.target.value, "address")}
         />
       </label>
       <br />
@@ -56,7 +62,7 @@ function StudentForm() {
           type="text"
           name="email"
           value={studentInfo.email}
-          onChange={(e) => setStudentInfo({...studentInfo, email: e.target.value})}
+          onChange={(e) => updateStudent(e.target.value, "email")}
         />
       </label>
     </div>
