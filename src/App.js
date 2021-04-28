@@ -3,6 +3,7 @@ import Welcome from './components/Welcome'
 import List from './components/List'
 import Greeting from './components/Greeting'
 import StudentProfile from './components/StudentProfile'
+import StudentForm from './components/StudentForm'
 
 function App() {
   const courseStudents = [
@@ -17,6 +18,7 @@ function App() {
       firstName: 'Nikki',
       lastName: 'Allen',
       coolShoes: false,
+      petName: 'Precious',
     },
   ]
   return (
@@ -30,6 +32,8 @@ function App() {
       <Greeting firstName="Cesar" />
       <List />
       <p>This is React</p>
+        <StudentForm />
+
     </>
   )
 }
